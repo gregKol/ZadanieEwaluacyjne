@@ -2,12 +2,12 @@
 
 W pliku tym zawarte są informacje dotyczące wykonania oraz przetestowania zadania ewaluacyjnego.
 
-1. Aplikacja została osadzona w trzech repozytoriach github odpowiednio:
+I. Aplikacja została osadzona w trzech repozytoriach github odpowiednio:
 * https://github.com/gregKol/credit-repo.git
 * https://github.com/gregKol/customer-repo.git
 * https://github.com/gregKol/product-repo.git
 
-2. Aplikacja została przetestowana w środowisku docker'owym. 
+II. Aplikacja została przetestowana w środowisku docker'owym. 
 W katalogu docker znajdują się pliki niezbędne do odtworzenia środowiska. Aplikację uruchamia się przy użyciu pliku konfiguracyjnego docker-compose.yml (który to z kolei wykorzystuje pliki Dockerfile w podkatalogach). Za jego pomocą można uruchomić całe środowisko składające się z czterech kontenerów (trzy aplikacyjne oraz jeden bazodanowy).
 
 Uruchomienie:
@@ -22,7 +22,7 @@ Aplikacja wykorzystuje proste testy jednoskotwe weryfikujcące tworzenie klienta
 
 TESTOWANIE:
 
-1. Wywołanie usługi "createCredit" z wcześniej spreparowanymi danymi w formacie JSON metodą POST. Wywołanie zwracało numer kredytu. 
+III. Wywołanie usługi "createCredit" z wcześniej spreparowanymi danymi w formacie JSON metodą POST. Wywołanie zwracało numer kredytu. 
 
 
 ```sh
@@ -86,7 +86,7 @@ Przypadek 3:
 }
 ```
 
-2. Wywołanie usługi "getCredit" metodą GET zwaca wszystkie kredyty. Zwrotne otrzymano dane:
+IV. Wywołanie usługi "getCredit" metodą GET zwaca wszystkie kredyty. Zwrotne otrzymano dane:
 
 
 ```sh

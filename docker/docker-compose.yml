@@ -1,0 +1,96 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3.7'
+
+# Define services
+services:
+
+  # App Service
+  credit:
+   # Configuration for building the docker image for the service
+   build:
+     context: . # Use an image built from the specified dockerfile in the current directory.
+     dockerfile: credit/Dockerfile
+     network: host
+   container_name: creditcontainer
+   ports:
+     - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+   restart: unless-stopped
+   depends_on:
+      - "postgres"
+   #environment: # Pass environment variables to the service
+     #REDIS_URL: postgres:5432    
+   networks: # Networks to join (Services on the same network can communicate with each other using their name)
+     - backend
+   # uruchom jako uzytkownik uid 1001 (gdocker)
+   user: "1001"
+ 
+  customer:
+   # Configuration for building the docker image for the service
+   build:
+     context: . # Use an image built from the specified dockerfile in the current directory.
+     dockerfile: customer/Dockerfile
+     network: host
+   container_name: customercontainer
+   ports:
+     - "8082:8082" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+   restart: unless-stopped
+   depends_on:
+     - "postgres"
+   #environment: # Pass environment variables to the service
+     #REDIS_URL: postgres:5432    
+   networks: # Networks to join (Services on the same network can communicate with each other using their name)
+     - backend
+   # uruchom jako uzytkownik uid 1001 (gdocker)
+   user: "1001"
+     
+  product:
+    # Configuration for building the docker image for the service
+    build:
+      context: . # Use an image built from the specified dockerfile in the current directory.
+      dockerfile: product/Dockerfile
+      network: host
+    container_name: productcontainer
+    ports:
+      - "8081:8081" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: unless-stopped
+    #environment: # Pass environment variables to the service
+      #REDIS_URL: postgres:5432    
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+    # uruchom jako uzytkownik uid 1001 (gdocker)
+    user: "1001"
+    depends_on:
+      - "postgres"
+
+
+  # Postgres Service   
+  postgres:
+    build:
+      context: . # Use an image built from the specified dockerfile in the current directory.
+      dockerfile: postgresdb/Dockerfile
+      network: host
+    container_name: db
+    ports:
+      - "5432:5432" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend  
+    # uruchom jako uzytkownik uid 1001 (gdocker)
+    #user: udocker
+#    environment:
+#      - POSTGRESQL_USER=udocker
+#      - POSTGRESQL_PASSWORD=alamakota
+#      - POSTGRESQL_DATABASE=postgres
+#      - POSTGRESQL_ADMIN_PASSWORD=alamakota
+
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:   
+    driver: bridge

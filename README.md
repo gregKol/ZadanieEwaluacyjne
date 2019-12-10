@@ -17,7 +17,7 @@ docker-compose up -d
 ```
 
 Po uruchomieniu kontenery są gotowe do użycia.
-Aplikacja wykorzystuje proste testy jednoskotwe testujące tworzenie klienta oraz produktu.
+Aplikacja wykorzystuje proste testy jednoskotwe weryfikujcące tworzenie klienta oraz produktu.
 
 
 TESTOWANIE:

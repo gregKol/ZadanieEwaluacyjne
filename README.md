@@ -24,8 +24,12 @@ TESTOWANIE:
 
 1. Wywołanie usługi "createCredit" z wcześniej spreparowanymi danymi w formacie JSON metodą POST. Wywołanie zwracało numer kredytu. 
 
-Przypadek 1:
 
+```sh
+URL: http://localhost:8080/createCredit,
+```
+
+Przypadek 1:
 
 ```sh
 {
@@ -87,6 +91,10 @@ Przypadek 3:
 
 ```sh
 http://localhost:8080/getCredit
+```
+
+
+```sh
 Info o numerach wszystkich kredytów: 
 [
 	{

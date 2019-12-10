@@ -7,15 +7,16 @@ W pliku tym zawarte są informacje dotyczące wykonania oraz przetestowania zada
 * https://github.com/gregKol/customer-repo.git
 * https://github.com/gregKol/product-repo.git
 
-Aplikacja została przetestowana w środowisku docker'owym. 
+2. Aplikacja została przetestowana w środowisku docker'owym. 
 W katalogu docker znajdują się pliki niezbędne do odtworzenia środowiska. Aplikację uruchamia się przy użyciu pliku konfiguracyjnego docker-compose.yml (który to z kolei wykorzystuje pliki Dockerfile w podkatalogach). Za jego pomocą można uruchomić całe środowisko składające się z czterech kontenerów (trzy aplikacyjne oraz jeden bazodanowy):
 
 ```sh
 docker-compose up -d
 ```
 
-
 Po uruchomieniu kontenery są gotowe do użycia.
+Aplikacja wykorzystuje proste testy jednoskotwe testujące tworzenie klienta oraz produktu.
+
 
 TESTOWANIE:
 
@@ -78,7 +79,7 @@ Przypadek 3:
 }
 ```
 
-2. Wywołanie usługi "getCredit" zwraca wszystkie kredyty. Dane zwrotne otrzymane:
+2. Wywołanie usługi "getCredit" zwraca wszystkie kredyty. Zwrotne otrzymano dane:
 
 Info o numerach wszystkich kredytow:
 ```sh

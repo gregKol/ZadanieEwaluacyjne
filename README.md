@@ -26,7 +26,7 @@ TESTOWANIE:
 
 
 ```sh
-URL: http://localhost:8080/createCredit,
+URL: http://localhost:8080/createCredit
 ```
 
 Przypadek 1:

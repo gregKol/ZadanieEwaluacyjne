@@ -82,10 +82,11 @@ Przypadek 3:
 }
 ```
 
-2. Wywołanie usługi "getCredit" zwraca wszystkie kredyty. Zwrotne otrzymano dane:
+2. Wywołanie usługi "getCredit" metodą GET zwaca wszystkie kredyty. Zwrotne otrzymano dane:
 
-Info o numerach wszystkich kredytow:
+
 ```sh
+http://localhost:8080/getCredit
 Info o numerach wszystkich kredytów: 
 [
 	{

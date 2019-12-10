@@ -8,9 +8,11 @@ W pliku tym zawarte są informacje dotyczące wykonania oraz przetestowania zada
 * https://github.com/gregKol/product-repo.git
 
 2. Aplikacja została przetestowana w środowisku docker'owym. 
-W katalogu docker znajdują się pliki niezbędne do odtworzenia środowiska. Aplikację uruchamia się przy użyciu pliku konfiguracyjnego docker-compose.yml (który to z kolei wykorzystuje pliki Dockerfile w podkatalogach). Za jego pomocą można uruchomić całe środowisko składające się z czterech kontenerów (trzy aplikacyjne oraz jeden bazodanowy):
+W katalogu docker znajdują się pliki niezbędne do odtworzenia środowiska. Aplikację uruchamia się przy użyciu pliku konfiguracyjnego docker-compose.yml (który to z kolei wykorzystuje pliki Dockerfile w podkatalogach). Za jego pomocą można uruchomić całe środowisko składające się z czterech kontenerów (trzy aplikacyjne oraz jeden bazodanowy).
 
+Uruchomienie:
 ```sh
+cd docker
 docker-compose up -d
 ```
 

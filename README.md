@@ -23,6 +23,7 @@ Aplikacja wykorzystuje proste testy jednoskotwe weryfikujcące tworzenie klienta
 TESTOWANIE:
 
 1. Wywołanie usługi "createCredit" z wcześniej spreparowanymi danymi w formacie JSON metodą POST. Wywołanie zwracało numer kredytu. 
+
 Przypadek 1:
 
 
